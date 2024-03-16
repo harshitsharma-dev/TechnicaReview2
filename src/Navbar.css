@@ -1,0 +1,43 @@
+/* Navbar.css */
+
+.navbar {
+    background-color: transparent; /* Make navbar background transparent */
+    background-image: url(''); /* Add background image */
+    background-size: cover; /* Ensure the background image covers the entire navbar */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+  }
+  
+  .navbar-toggler-icon {
+    color: #fff; /* Color of the navbar toggler icon */
+  }
+  
+  .navbar-brand {
+    color: #fff !important; /* Navbar brand text color */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #fff !important; /* Navbar link text color */
+  }
+  
+  .location-info {
+    margin-left: 15%;
+    width: 100%;
+  }
+  
+  .update-location {
+    cursor: pointer;
+    color: #fff;
+    margin-top: 5px;
+  }
+  
+  .navbar-collapse {
+    justify-content: flex-end; /* Align elements to the right */
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-collapse {
+      justify-content: flex-start; /* Align elements to the left on smaller screens */
+    }
+  }
+  

@@ -1,0 +1,114 @@
+/* h2{
+  color: aqua;
+  text-align: center;
+  font-size: 5rem;
+  margin: 0 0 2rem;
+  font-family: 'Stylish',sans-serif;
+} */
+body {
+  background-image: url('../vibrant-summer-ombre-background-vector_53876-105765.avif');
+  background-size: cover; /* Ensure the background image covers the entire viewport */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
+
+.container{
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.box{
+  background-color: burlywood;
+  width: 28%;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 2px 2px 10px white;
+}
+
+#title{
+  color: black;
+  text-align: center;
+  font-family: 'Stylish',sans-serif;
+
+}
+
+#description{
+  color: palegreen;
+  font-size: .9rem;
+}
+#productimage{
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+/* App.css */
+
+/* Global styles */
+.btn:hover {
+  background-color: initial; /* Keep the button background color unchanged */
+  border-color: black; /* Change the button border color to black on hover */
+}
+
+.card {
+  position: relative; /* Ensure relative positioning for absolute child */
+  border: 3px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+  transition: box-shadow 0.3s, border-color 0.3s; /* Add transition */
+}
+
+.card:hover {
+  border-color: black; /* Change border color to black on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add glow effect on hover */
+}
+
+.card:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../blue_gradient.jpeg'); /* Specify the URL of the background image */
+  background-size: cover; /* Cover the entire card */
+  background-position: center; /* Center the background image */
+  opacity: 0.7; /* Adjust the opacity of the background image */
+  z-index: -1; /* Send the background image behind the card content */
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  margin-bottom: 1rem;
+}
+
+.card-footer {
+  background-color: #f7f7f7;
+  padding: 0.75rem;
+}
+
+.card-img-top {
+  width: 100%; /* Set the width to 100% */
+  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.footer-links {
+  margin-left: auto; /* Pushes the social media links to the right */
+}
+
+.footer-links a {
+  margin-right: 10px; /* Add margin between social media links */
+}
