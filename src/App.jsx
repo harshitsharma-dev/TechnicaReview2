@@ -26,6 +26,7 @@ function App() {
   };
 
   const handleReadMore = (event) => {
+    event.preventDefault();
     const cardBody = event.target.parentNode;
     const cardText = cardBody.querySelector('.card-text');
     const fullText = cardText.getAttribute('data-full-text');
@@ -42,7 +43,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container d-flex flex-wrap justify-content-start">
+      <div className="container d-flex flex-wrap justify-content-center">
         {fake.map((values) => {
           function passVal() {
             console.log(values.id);
