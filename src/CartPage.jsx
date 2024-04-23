@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import './App.css'; // Import CSS file for styling
 
-function App() {
+function CartPage() {
   const [fake, setFake] = useState([]);
   
   useEffect(() => {
@@ -49,29 +49,31 @@ function App() {
             console.log(values.id);
             localStorage.setItem('objectToPass', values.id);
           }
-          return (
-            <a key={values.id} href='../vite-deploy/ProductPage.html' onClick={passVal} className="card btn " style={{ width: "18rem", margin: "2rem", textDecoration: 'none', position: 'relative' }}>
-              <img src={values.image} className="card-img-top" alt="imagehere" style={{ maxHeight: '200px', objectFit: 'contain' }} />
-              <img src={values.hoverImage} className="hover-img" alt="hoverImage" style={{ maxHeight: '200px', objectFit: 'contain', display: 'none', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
-              <div className="card-body">
-                <h5 className="card-title">
-                  {values.title.length > 20 ? values.title.slice(0, 20) + '...' : values.title}
-                </h5>
-                <p className="card-text" data-full-text={values.description}>
-                  {truncateText(values.description, 100)}
-                </p>
-                {values.description.length > 100 && (
-                  <button className="btn btn-link" onClick={handleReadMore}>Read more</button>
-                )}
-                <a href="" className="btn btn-primary">${values.price}</a>
-              </div>
-            </a>
-          );
+          if(localStorage.getItem("cartItems").includes(values.id)){
+            return (
+                <a key={values.id} href='../vite-deploy/ProductPage.html' onClick={passVal} className="card btn " style={{ width: "18rem", margin: "2rem", textDecoration: 'none', position: 'relative' }}>
+                  <img src={values.image} className="card-img-top" alt="imagehere" style={{ maxHeight: '200px', objectFit: 'contain' }} />
+                  <img src={values.hoverImage} className="hover-img" alt="hoverImage" style={{ maxHeight: '200px', objectFit: 'contain', display: 'none', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      {values.title.length > 20 ? values.title.slice(0, 20) + '...' : values.title}
+                    </h5>
+                    <p className="card-text" data-full-text={values.description}>
+                      {truncateText(values.description, 100)}
+                    </p>
+                    {values.description.length > 100 && (
+                      <button className="btn btn-link" onClick={handleReadMore}>Read more</button>
+                    )}
+                    <a href="" className="btn btn-primary">${values.price}</a>
+                  </div>
+                </a>
+              );
+            
+          } 
         })}
       </div>
-      <Footer />
     </>
   );
 }
 
-export default App;
+export default CartPage;

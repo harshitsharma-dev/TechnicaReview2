@@ -4,7 +4,7 @@ import logo from './assets/vmart.jpg';
 import locationpin from './assets/geo-alt-fill.svg';
 import './Navbar.css'; // Import custom CSS for Navbar styling
 
-function Navbar(props) {
+function NavLogged(props) {
   const [location, setLocation] = useState('Vellore');
   const [area, setArea] = useState('632014');
 
@@ -51,16 +51,15 @@ function Navbar(props) {
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{ marginRight: '10px' }} />
             <button className="btn btn-outline-light" type="submit">Search</button>
           </form>
-          <a href='/vite-deploy/login'><button className="btn btn-success" type="login" style={{ marginLeft: '10px' }}>Login/Signin</button></a>
+          <a href='/vite-deploy/Cart.html'><button className="btn btn-success" type="login" style={{ marginLeft: '10px' }}> <img src="C:\Users\harshit\OneDrive\Documents\work\workwork\Technica_project\technica_copy\vite-project\src\assets\cart.jpg" alt="ADD TO CART" /> </button></a>
         </div>
       </div>
     </nav>
   );
 }
 
-Navbar.propTypes = {
+NavLogged.propTypes = {
   // Add propTypes if needed
 };
 
-export default Navbar;
-
+export default NavLogged;

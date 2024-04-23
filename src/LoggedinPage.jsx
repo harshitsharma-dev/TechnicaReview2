@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar';
+import NavLogged from './NavLogged';
 import Footer from './Footer';
 import './App.css'; // Import CSS file for styling
 
-function App() {
+function LoggedIN() {
   const [fake, setFake] = useState([]);
-  
+
   useEffect(() => {
     fakestore();
   }, []);
@@ -40,17 +40,25 @@ function App() {
     }
   };
 
+  const handleAddToCart = (event, productId) => {
+    event.preventDefault();
+    // Retrieve existing cart items from localStorage
+    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    // Add new product to cart
+    cartItems.push(productId);
+    // Save updated cart items to localStorage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    // Hide the price button
+    event.target.style.display = 'none';
+  };
+
   return (
     <>
-      <Navbar position="relative"/>
+      <NavLogged position="sticky"/>
       <div className="container d-flex flex-wrap justify-content-center">
         {fake.map((values) => {
-          function passVal() {
-            console.log(values.id);
-            localStorage.setItem('objectToPass', values.id);
-          }
           return (
-            <a key={values.id} href='../vite-deploy/ProductPage.html' onClick={passVal} className="card btn " style={{ width: "18rem", margin: "2rem", textDecoration: 'none', position: 'relative' }}>
+            <a key={values.id} href='../vite-deploy/ProductPage.html' className="card btn " style={{ width: "18rem", margin: "2rem", textDecoration: 'none', position: 'relative' }}>
               <img src={values.image} className="card-img-top" alt="imagehere" style={{ maxHeight: '200px', objectFit: 'contain' }} />
               <img src={values.hoverImage} className="hover-img" alt="hoverImage" style={{ maxHeight: '200px', objectFit: 'contain', display: 'none', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
               <div className="card-body">
@@ -63,15 +71,16 @@ function App() {
                 {values.description.length > 100 && (
                   <button className="btn btn-link" onClick={handleReadMore}>Read more</button>
                 )}
-                <a href="" className="btn btn-primary">${values.price}</a>
+                <button className="btn btn-primary" onClick={(event) => handleAddToCart(event, values.id)}>
+                  ${values.price}
+                </button>
               </div>
             </a>
           );
         })}
       </div>
-      <Footer />
     </>
   );
 }
 
-export default App;
+export default LoggedIN;

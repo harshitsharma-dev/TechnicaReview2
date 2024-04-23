@@ -37,7 +37,7 @@ function Product({ id }) {
           ))}
         </div>
         <div className="col-md-6">
-          <RatingsAndReviews />
+          <RatingsAndReviews/>
         </div>
       </div>
     </div>

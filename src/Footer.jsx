@@ -23,6 +23,7 @@ function Footer() {
           </div>
         </div>
       </div>
+      Hello
     </footer>
   );
 }
